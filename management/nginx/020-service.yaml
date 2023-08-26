@@ -4,9 +4,6 @@ metadata:
   name: ingress-nginx-controller
   namespace: ingress-nginx
 spec:
-  externalTrafficPolicy: Cluster
+  externalTrafficPolicy: Cluster # loadBalancer?
   externalIPs:
-  # Add your cluster ip address here:
-  - {YOUR_CLUSTER_IP}
-
-
+  - 192.168.44.99

@@ -7,15 +7,16 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-staging"
 spec:
+  ingressClassName: "nginx"
   tls:
   - hosts:
-    - {YOUR-DOMAIN-NAME}
+    - cloud.tnils.eu
     secretName: tls-whoami
   rules:
-  - host: {YOUR-DOMAIN-NAME}
+  - host: cloud.tnils.eu
     http:
       paths:
-      - path: /
+      - path: /whoami
         pathType: Prefix
         backend:
           service:
