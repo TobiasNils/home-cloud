@@ -18,13 +18,13 @@ metadata:
 spec:
   tls:
   - hosts:
-    - {YOUR-DOMAIN-NAME}
+    - localhost
     secretName: tls-longhorn-frontend
   rules:
-  - host: {YOUR-DOMAIN-NAME}
+  - host: localhost
     http:
       paths:
-      - path: /
+      - path: /storage
         pathType: Prefix
         backend:
           service:
