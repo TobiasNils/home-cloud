@@ -6,4 +6,4 @@ metadata:
 spec:
   externalTrafficPolicy: Cluster # loadBalancer?
   externalIPs:
-  - 192.168.44.99
+  - $MY_EXTERNAL_IP
