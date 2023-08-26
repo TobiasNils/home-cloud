@@ -1,4 +1,4 @@
-$(openssl rand -base64 32) > admin.txt
+openssl rand -base64 32 > admin.txt
 
 kubectl create secret generic gitea-admin-secret \
     -n home \
