@@ -18,7 +18,6 @@ spec:
     http:
       paths:
       - path: /whoami
-        pathType: Prefix
         backend:
           service:
             name: whoami
