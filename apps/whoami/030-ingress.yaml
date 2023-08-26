@@ -4,22 +4,26 @@ kind: Ingress
 apiVersion: networking.k8s.io/v1
 metadata:
   name: whoami
+  namespace: whoami
   annotations:
-    cert-manager.io/cluster-issuer: "letsencrypt-staging"
+    traefik.ingress.kubernetes.io/router.entrypoints: web
+
 spec:
-  ingressClassName: "nginx"
-  tls:
-  - hosts:
-    - cloud.tnils.eu
-    secretName: tls-whoami
   rules:
-  - host: cloud.tnils.eu
-    http:
-      paths:
-      - path: /whoami
-        pathType: Prefix
-        backend:
-          service:
-            name: whoami
-            port:
-              number: 80
+    - http:
+        paths:
+          - path: /bar
+            pathType: Prefix
+            backend:
+              service:
+                name: whoami
+                port:
+                  number: 80
+          - path: /foo
+            pathType: Prefix
+            backend:
+              service:
+                name: whoami
+                port:
+                  number: 80
+

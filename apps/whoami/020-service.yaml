@@ -1,13 +1,15 @@
 # Service
 ---
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
   name: whoami
+  namespace: whoami
+
 spec:
   ports:
-  - port: 80
-    name: web
+    - name: http
+      port: 80
   selector:
-    app: whoami
-    
+    app: traefiklabs
+    task: whoami
