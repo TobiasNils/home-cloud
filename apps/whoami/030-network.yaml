@@ -7,17 +7,17 @@ metadata:
  namespace: whoami
 spec:
  acme:
-   email: info@tnils.eu
-   # We use the staging server here for testing to avoid hitting
-   server: https://acme-staging-v02.api.letsencrypt.org/directory
-   privateKeySecretRef:
-     # if not existing, it will register a new account and stores it
-     name: whoami-issuer-account-key
-   solvers:
-     - http01:
-         # The ingressClass used to create the necessary ingress routes
-         ingress:
-           class: traefik
+    email: info@tnils.eu
+    # We use the staging server here for testing to avoid hitting
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      # if not existing, it will register a new account and stores it
+      name: whoami-issuer-account-key
+    solvers:
+      - http01:
+          # The ingressClass used to create the necessary ingress routes
+          ingress:
+            class: traefik
 
 # IngresRoute http
 ---
@@ -30,11 +30,10 @@ metadata:
     traefik.ingress.kubernetes.io/router.entrypoints: web
     cert-manager.io/issuer: "whoami-issuer"
 spec:
- tls:
-   - hosts:
-       - cloud.tnils.eu
-     secretName: tls-whoami-ingress-http
-spec:
+  tls:
+    - hosts:
+        - cloud.tnils.eu
+      secretName: tls-whoami-ingress-http
   rules:
     - host: cloud.tnils.eu
       http:
