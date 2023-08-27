@@ -28,17 +28,17 @@ spec:
         app: gitea
     spec:
       containers:
-      - name: gitea
-        image: gitea/gitea:1.20.3
-        ports:
-        - containerPort: 3000
-          name: gitea
-        - containerPort: 2222
-          name: git-ssh
-        volumeMounts:
-        - mountPath: /data
-          name: git-data
+        - name: gitea
+          image: gitea/gitea:1.20.3
+          ports:
+          - containerPort: 3000
+            name: gitea
+          - containerPort: 2222
+            name: git-ssh
+          volumeMounts:
+          - mountPath: /data
+            name: git-data
       volumes:
-      - name: git-data
-        persistentVolumeClaim:
-          claimName: git-pvc
+        - name: git-data
+          persistentVolumeClaim:
+            claimName: git-pvc

@@ -29,7 +29,7 @@ spec:
           volumeMounts:
             - mountPath: /data
               name: bitwarden-data
-          volumes:
-          - name: bitwarden-data
-            persistentVolumeClaim:
-              claimName: bitwarden-pvc
+      volumes:
+      - name: bitwarden-data
+        persistentVolumeClaim:
+          claimName: bitwarden-pvc
