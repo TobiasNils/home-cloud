@@ -1,0 +1,35 @@
+# Deployment
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: bitwarden
+  namespace: bitwarden
+  labels:
+    app: bitwarden
+    name: bitwarden
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bitwarden
+      name: bitwarden
+  template:
+    metadata:
+      labels:
+        app: bitwarden
+        name: bitwarden
+    spec:
+      containers:
+        - name: bitwarden
+          image: vaultwarden/server
+          ports:
+            - name: web
+              containerPort: 80
+          volumeMounts:
+            - mountPath: /data
+              name: bitwarden-data
+          volumes:
+          - name: bitwarden-data
+            persistentVolumeClaim:
+              claimName: bitwarden-pvc

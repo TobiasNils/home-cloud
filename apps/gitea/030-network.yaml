@@ -1,0 +1,47 @@
+###############################
+# Service
+###############################
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: gitea-service
+  namespace: gitea
+spec:
+  selector:
+    app: gitea
+  ports:
+  - name: gitea-http
+    port: 3000
+  - name: gitea-ssh
+    type: LoadBalancer
+    port: 2222
+
+
+---
+###################################################
+# Ingress
+###################################################
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: git-tls
+  namespace: gitea
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  tls:
+  - hosts:
+    - git.tnils.eu
+    secretName: tls-gitea
+  rules:
+  - host: git.tnils.eu
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: gitea
+            port:
+              name: gitea-http
