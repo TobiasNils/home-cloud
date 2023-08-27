@@ -37,7 +37,7 @@ spec:
     - host: cloud.tnils.eu
       http:
         paths:
-          - path: /bitwarden
+          - path: /vault
             pathType: Prefix
             backend:
               service:
