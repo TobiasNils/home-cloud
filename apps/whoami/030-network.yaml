@@ -9,7 +9,7 @@ spec:
  acme:
     email: info@tnils.eu
     # We use the staging server here for testing to avoid hitting
-    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    server: https://acme-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       # if not existing, it will register a new account and stores it
       name: whoami-issuer-account-key
