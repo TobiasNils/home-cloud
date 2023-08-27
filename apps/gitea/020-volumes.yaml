@@ -16,5 +16,4 @@ spec:
   storageClassName: local-path
   resources:
     requests:
-      storage: 5Gi
-  volumeName: "distributed-pv"
+      storage: 2Gi
