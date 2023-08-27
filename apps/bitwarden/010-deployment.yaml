@@ -23,6 +23,9 @@ spec:
       containers:
         - name: bitwarden
           image: vaultwarden/server
+          env:
+          - name: DOMAIN
+            value: https://cloud.tnils.eu/bitwarden
           ports:
             - name: web
               containerPort: 80
