@@ -28,7 +28,7 @@ firewall-cmd --permanent --zone=cluster --add-port=443/tcp
 firewall-cmd --permanent --zone=cluster --add-port=80/tcp
 firewall-cmd --permanent --zone=cluster --add-port=6443/tcp # apiserver
 firewall-cmd --permanent --zone=cluster --add-source=192.168.44.0/24 # local network
-firewall-cmd --permanent --set-default-zone cluster
+firewall-cmd --permanent --zone=cluster --set-target=DROP # restrict access to machines in local network
 
 # ufw allow ssh comment 'allow ssh access form anywhere'
 # # the https rule is only needed on master node
@@ -40,7 +40,8 @@ firewall-cmd --permanent --set-default-zone cluster
 # #ufw allow from x.y.a.b comment 'allow your ceph cluster nodes'
 # #ufw allow from x.y.a.c
 # #ufw allow from x.y.a.d
-
+firewall-cmd --permanent --zone=public --set-target=DROP 
+firewall-cmd --permanent --set-default-zone public
 
 firewall-cmd --reload
 systemctl enable firewalld --now
