@@ -27,7 +27,7 @@ metadata:
   name: whoami
   namespace: whoami
   annotations:
-    traefik.ingress.kubernetes.io/router.entrypoints: web, websecure
+    # traefik.ingress.kubernetes.io/router.entrypoints: web, websecure
     cert-manager.io/issuer: "whoami-issuer"
 spec:
   tls:
