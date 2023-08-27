@@ -10,7 +10,7 @@ metadata:
 spec:
   ports:
     - name: web
-      port: 80
+      port: 81
       targetPort: web
   selector:
     app: bitwarden

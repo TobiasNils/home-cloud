@@ -26,9 +26,13 @@ spec:
           env:
           - name: DOMAIN
             value: https://cloud.tnils.eu/bitwarden
+          - name: ROCKET_ADDRESS
+            value: 192.168.44.99
+          - name: ROCKET_PORT
+            value: 81  
           ports:
             - name: web
-              containerPort: 80
+              containerPort: 81
           volumeMounts:
             - mountPath: /data
               name: bitwarden-data
