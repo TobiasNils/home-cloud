@@ -45,12 +45,12 @@ spec:
               service:
                 name: whoami
                 port:
-                  number: 80
+                  name: web
           - path: /foo
             pathType: Prefix
             backend:
               service:
                 name: whoami
                 port:
-                  number: 80
+                  name: web
 
