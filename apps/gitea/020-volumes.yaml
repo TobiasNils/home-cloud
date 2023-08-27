@@ -8,10 +8,12 @@ kind: PersistentVolumeClaim
 metadata:
   name: git-pvc
   namespace: gitea
+  annotations:
+    volumeType: local
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: manual
+  storageClassName: local-path
   resources:
     requests:
       storage: 5Gi

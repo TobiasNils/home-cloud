@@ -4,8 +4,10 @@ kind: PersistentVolumeClaim
 metadata:
   name: bitwarden-pvc
   namespace: bitwarden
+  annotations:
+    volumeType: local
 spec:
-  storageClassName: manual
+  storageClassName: local-path
   accessModes:
     - ReadWriteOnce
   resources:
