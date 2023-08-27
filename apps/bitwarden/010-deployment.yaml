@@ -27,7 +27,7 @@ spec:
             - name: DOMAIN
               value: 'https://cloud.tnils.eu/bitwarden'
             - name: ROCKET_ADDRESS
-              value: '192.168.44.99'
+              value: '0.0.0.0'
             - name: ROCKET_PORT
               value: '81'
           ports:
