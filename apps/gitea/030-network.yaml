@@ -14,7 +14,6 @@ spec:
   - name: gitea-http
     port: 3000
   - name: gitea-ssh
-    type: LoadBalancer
     port: 2222
 
 
@@ -45,3 +44,10 @@ spec:
             name: gitea
             port:
               name: gitea-http
+      - path: /ssh
+        pathType: Prefix
+        backend:
+          service:
+            name: gitea
+            port:
+              name: gitea-ssh
