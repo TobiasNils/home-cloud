@@ -12,6 +12,8 @@ spec:
     - name: web
       port: 81
       targetPort: web
+  selector:
+    appp: bitwarden
 
 ---
 ###################################################

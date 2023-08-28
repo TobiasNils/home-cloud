@@ -7,18 +7,15 @@ metadata:
   namespace: bitwarden
   labels:
     app: bitwarden
-    name: bitwarden
 spec:
   replicas: 2
   selector:
     matchLabels:
       app: bitwarden
-      name: bitwarden
   template:
     metadata:
       labels:
         app: bitwarden
-        name: bitwarden
     spec:
       containers:
         - name: bitwarden
