@@ -29,7 +29,7 @@ metadata:
   name: git-tls
   namespace: gitea
   annotations:
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    cert-manager.io/cluster-issuer: "letsencrypt-staging"
 spec:
   tls:
   - hosts:

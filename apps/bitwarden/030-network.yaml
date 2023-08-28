@@ -24,7 +24,7 @@ metadata:
   namespace: bitwarden
   annotations:
     #traefik.ingress.kubernetes.io/router.entrypoints: web, websecure
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    cert-manager.io/cluster-issuer: "letsencrypt-staging"
     acme.cert-manager.io/http01-edit-in-place: "true"
 spec:
   tls:
