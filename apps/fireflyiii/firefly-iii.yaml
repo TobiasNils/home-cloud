@@ -16,9 +16,9 @@ metadata:
 spec:
   ports:
     - port: 8080
+      name: firefly-iii
   selector:
     app: firefly-iii
-    tier: frontend
 
 ---
 

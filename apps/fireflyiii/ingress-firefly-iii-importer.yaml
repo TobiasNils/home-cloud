@@ -7,19 +7,21 @@ metadata:
   labels:
   name: firefly-iii-importer-ingress
 spec:
-  rules:
-  - host: cloud.tnils.eu
-    http:
-      paths:
-      - backend:
-          service:
-            name: firefly-iii-importer
-            port:
-              number: 8080
-        path: /finances-importer
-        pathType: Prefix
   tls:
     - hosts:
       - cloud.tnils.eu
       secretName: importer-firefly-iii-tls
+  rules:
+  - host: cloud.tnils.eu
+    http:
+      paths:
+      - path: /finances-importer
+        pathType: Prefix
+        backend:
+          service:
+            name: firefly-iii-importer
+            port:
+              number: 8080
+        
+  
 

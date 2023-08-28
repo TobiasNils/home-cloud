@@ -3,14 +3,12 @@ kind: Service
 metadata:
   name: firefly-iii-importer
   namespace: firefly-iii
-  labels:
-    app: firefly-iii-importer
+
 spec:
   ports:
     - port: 8080
   selector:
     app: firefly-iii-importer
-    tier: frontend
 
 ---
 
