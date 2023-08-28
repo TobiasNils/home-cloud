@@ -12,7 +12,7 @@ spec:
     - name: web
       port: 81
       targetPort: web
-  
+
 ---
 ###################################################
 # Ingress
@@ -40,4 +40,5 @@ spec:
             service:
               name: bitwarden
               port:
+                name: web
                 number: 81
