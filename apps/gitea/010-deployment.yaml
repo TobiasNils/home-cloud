@@ -37,7 +37,7 @@ spec:
               name: git-ssh
           env:
             - name: GITEA__cache__ENABLED
-              value: true
+              value: 'true'
             - name: GITEA__cache__ADAPTER
               value: redis
             - name: GITEA__cache__HOST
@@ -68,7 +68,7 @@ spec:
           volumeMounts:
           - mountPath: /data
             name: git-data
-            
+
       volumes:
         - name: git-data
           persistentVolumeClaim:
