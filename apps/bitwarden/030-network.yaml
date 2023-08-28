@@ -23,8 +23,9 @@ metadata:
   name: bitwarden
   namespace: bitwarden
   annotations:
-    traefik.ingress.kubernetes.io/router.entrypoints: web, websecure
+    #traefik.ingress.kubernetes.io/router.entrypoints: web, websecure
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    acme.cert-manager.io/http01-edit-in-place: "true"
 spec:
   tls:
   - hosts:
@@ -41,4 +42,3 @@ spec:
               name: bitwarden
               port:
                 name: web
-                number: 81
