@@ -8,7 +8,7 @@ metadata:
   labels:
     app: vault
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: vault
@@ -23,17 +23,13 @@ spec:
           env:
             - name: DOMAIN
               value: 'https://cloud.tnils.eu/vault'
-            - name: ROCKET_ADDRESS
-              value: '0.0.0.0'
-            - name: ROCKET_PORT
-              value: '81'
             - name: ADMIN_TOKEN
               value: '$$argon2id$$v=19$$m=19456,t=2,p=1$$SHVYd3BjUVBSaDIvSjN6NDZhS2xyZGR1N2V1b0RLK1lQM1F0WEpxUUNBZz0$$yseTByAJMPNzoch8p7z0Kn3nkvi4qfOF9ILJhuOlHx0'
             - name: SIGNUPS_ALLOWED
-              value: 'false'
+              value: 'true'
           ports:
             - name: web
-              containerPort: 81
+              containerPort: 80
           volumeMounts:
             - mountPath: /data
               name: vault-data
