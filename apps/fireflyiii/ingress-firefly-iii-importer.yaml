@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    acme.cert-manager.io/http01-edit-in-place: "true"
+  labels:
+  name: firefly-iii-importer-ingress
+spec:
+  rules:
+  - host: cloud.tnils.eu
+    http:
+      paths:
+      - backend:
+          service:
+            name: firefly-iii-importer
+            port:
+              number: 8080
+        path: /finances-importer
+        pathType: Prefix
+tls:
+  - hosts:
+    - cloud.tnils.eu
+    secretName: importer-firefly-iii-tls
+
