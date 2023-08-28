@@ -7,7 +7,6 @@ apiVersion: v1
 metadata:
   name: gitea
   namespace: gitea
-
 spec:
   ports:
     - name: gitea-http
@@ -16,8 +15,6 @@ spec:
       port: 2222
   selector:
     app: gitea
-    task: gitea
-
 
 ---
 ###################################################

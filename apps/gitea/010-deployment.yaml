@@ -31,13 +31,44 @@ spec:
         - name: gitea
           image: gitea/gitea:1.20.3
           ports:
-          - containerPort: 3000
-            name: gitea
-          - containerPort: 2222
-            name: git-ssh
+            - containerPort: 3000
+              name: gitea
+            - containerPort: 2222
+              name: git-ssh
+          env:
+            - name: GITEA__cache__ENABLED
+              value: true
+            - name: GITEA__cache__ADAPTER
+              value: redis
+            - name: GITEA__cache__HOST
+              value: redis://localhost:6379/0?pool_size=100&idle_timeout=180s
+            - name: GITEA__cache__TIEM_TTL
+              value: 24h
           volumeMounts:
           - mountPath: /data
             name: git-data
+
+        - name: postgres
+          image: docker.io/library/postgres:15
+          env: 
+          - name: POSTGRES_PASSWORD
+            value: "tna"
+          - name: POSTGRES_USER
+            value: "tna"
+          - name: PGDATA
+            value: /data/pgdata
+          volumeMounts:
+          - mountPath: /data
+            name: git-data
+
+        - name: redis
+          image: docker.io/library/redis:latest
+          ports:
+          - containerPort: 6379
+          volumeMounts:
+          - mountPath: /data
+            name: git-data
+            
       volumes:
         - name: git-data
           persistentVolumeClaim:
