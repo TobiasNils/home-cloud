@@ -36,6 +36,10 @@ spec:
             - containerPort: 2222
               name: git-ssh
           env:
+            - name: USER_UID
+              value: '1000'
+            - name: USER_GID
+              value: '1000'
             - name: GITEA__cache__ENABLED
               value: 'true'
             - name: GITEA__cache__ADAPTER
