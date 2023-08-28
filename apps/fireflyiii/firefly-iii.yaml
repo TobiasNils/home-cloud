@@ -1,6 +1,11 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: firefly-iii
+
 # Service to expose Firefly III on an available port in Kubernetes cluster
 # Assigned port can be seen with `kubectl get services firefly-iii`
-
+---
 apiVersion: v1
 kind: Service
 metadata:
