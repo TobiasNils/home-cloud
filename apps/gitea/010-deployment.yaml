@@ -72,7 +72,8 @@ spec:
           volumeMounts:
           - mountPath: /data
             name: git-data
-
+      securityContext:
+        fsGroup: 1000
       volumes:
         - name: git-data
           persistentVolumeClaim:
