@@ -27,6 +27,10 @@ spec:
               value: '0.0.0.0'
             - name: ROCKET_PORT
               value: '81'
+            - name: ADMIN_TOKEN
+              value: 'vJaHp0sF6F0c77vqaQkem8dW4ccfr4pPKDkIOIJ+WunYYEhIw6oij8X6leSgvuhL'
+            - name: SIGNUPS_ALLOWED
+              value: false
           ports:
             - name: web
               containerPort: 81
