@@ -12,10 +12,7 @@ spec:
     - name: web
       port: 81
       targetPort: web
-  selector:
-    app: bitwarden
-    task: bitwarden
-
+  
 ---
 ###################################################
 # Ingress
