@@ -1,4 +1,4 @@
-# Bitwarden/vaultwarden
+# vault/vaultwarden
 
 ## Config
 
@@ -82,14 +82,14 @@
 # WEBSOCKET_ADDRESS=0.0.0.0
 # WEBSOCKET_PORT=3012
 
-## Enables push notifications (requires key and id from https://bitwarden.com/host)
+## Enables push notifications (requires key and id from https://vault.com/host)
 # PUSH_ENABLED=true
 # PUSH_INSTALLATION_ID=CHANGEME
 # PUSH_INSTALLATION_KEY=CHANGEME
 ## Don't change this unless you know what you're doing.
-# PUSH_RELAY_URI=https://push.bitwarden.com
+# PUSH_RELAY_URI=https://push.vault.com
 
-## Controls whether users are allowed to create Bitwarden Sends.
+## Controls whether users are allowed to create vault Sends.
 ## This setting applies globally to all users.
 ## To control this on a per-org basis instead, use the "Disable Send" org policy.
 # SENDS_ALLOWED=true
@@ -188,7 +188,7 @@
 # DB_CONNECTION_RETRIES=15
 
 ## Icon service
-## The predefined icon services are: internal, bitwarden, duckduckgo, google.
+## The predefined icon services are: internal, vault, duckduckgo, google.
 ## To specify a custom icon service, set a URL template with exactly one instance of `{}`,
 ## which is replaced with the domain. For example: `https://icon.example.com/domain/{}`.
 ##
@@ -205,7 +205,7 @@
 ## The supported codes are 301 (legacy permanent), 302 (legacy temporary), 307 (temporary), and 308 (permanent).
 ## Temporary redirects are useful while testing different icon services, but once a service
 ## has been decided on, consider using permanent redirects for cacheability. The legacy codes
-## are currently better supported by the Bitwarden clients.
+## are currently better supported by the vault clients.
 # ICON_REDIRECT_CODE=302
 
 ## Disable icon downloading
@@ -244,7 +244,7 @@
 
 ## Email token size
 ## Number of digits in an email 2FA token (min: 6, max: 255).
-## Note that the Bitwarden clients are hardcoded to mention 6 digit codes regardless of this setting!
+## Note that the vault clients are hardcoded to mention 6 digit codes regardless of this setting!
 # EMAIL_TOKEN_SIZE=6
 
 ## Controls if new users can register
@@ -372,7 +372,7 @@ DOMAIN=https://vw.domain.tld:8443
 ## Duo Settings
 ## You need to configure all options to enable global Duo support, otherwise users would need to configure it themselves
 ## Create an account and protect an application as mentioned in this link (only the first step, not the rest):
-## https://help.bitwarden.com/article/setup-two-step-login-duo/#create-a-duo-security-account
+## https://help.vault.com/article/setup-two-step-login-duo/#create-a-duo-security-account
 ## Then set the following options, based on the values obtained from the last step:
 # DUO_IKEY=<Integration Key>
 # DUO_SKEY=<Secret Key>

@@ -3,26 +3,26 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: bitwarden
-  namespace: bitwarden
+  name: vault
+  namespace: vault
   labels:
-    app: bitwarden
+    app: vault
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: bitwarden
+      app: vault
   template:
     metadata:
       labels:
-        app: bitwarden
+        app: vault
     spec:
       containers:
-        - name: bitwarden
+        - name: vault
           image: vaultwarden/server
           env:
             - name: DOMAIN
-              value: 'https://cloud.tnils.eu/bitwarden'
+              value: 'https://cloud.tnils.eu/vault'
             - name: ROCKET_ADDRESS
               value: '0.0.0.0'
             - name: ROCKET_PORT
@@ -32,8 +32,8 @@ spec:
               containerPort: 81
           volumeMounts:
             - mountPath: /data
-              name: bitwarden-data
+              name: vault-data
       volumes:
-      - name: bitwarden-data
+      - name: vault-data
         persistentVolumeClaim:
-          claimName: bitwarden-pvc
+          claimName: vault-pvc
