@@ -18,8 +18,8 @@ spec:
               number: 8080
         path: /finances-importer
         pathType: Prefix
-tls:
-  - hosts:
-    - cloud.tnils.eu
-    secretName: importer-firefly-iii-tls
+  tls:
+    - hosts:
+      - cloud.tnils.eu
+      secretName: importer-firefly-iii-tls
 
