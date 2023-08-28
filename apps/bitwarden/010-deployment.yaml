@@ -28,7 +28,7 @@ spec:
             - name: ROCKET_PORT
               value: '81'
             - name: ADMIN_TOKEN
-              value: 'vJaHp0sF6F0c77vqaQkem8dW4ccfr4pPKDkIOIJ+WunYYEhIw6oij8X6leSgvuhL'
+              value: '$$argon2id$$v=19$$m=19456,t=2,p=1$$SHVYd3BjUVBSaDIvSjN6NDZhS2xyZGR1N2V1b0RLK1lQM1F0WEpxUUNBZz0$$yseTByAJMPNzoch8p7z0Kn3nkvi4qfOF9ILJhuOlHx0'
             - name: SIGNUPS_ALLOWED
               value: 'false'
           ports:
