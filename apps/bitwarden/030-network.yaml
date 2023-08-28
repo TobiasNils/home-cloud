@@ -30,17 +30,17 @@ metadata:
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
   tls:
-    - hosts:
-        - cloud.tnils.eu
-      secretName: tls-bitwarden
+  - hosts:
+      - cloud.tnils.eu
+    secretName: tls-bitwarden
   rules:
-    - host: cloud.tnils.eu
-      http:
-        paths:
-          - path: /vault
-            pathType: Prefix
-            backend:
-              service:
-                name: bitwarden
-                port:
-                  name: web
+  - host: cloud.tnils.eu
+    http:
+      paths:
+        - path: /bitwarden
+          pathType: Prefix
+          backend:
+            service:
+              name: bitwarden
+              port:
+                number: 81
