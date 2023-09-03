@@ -1,8 +1,11 @@
 resources:
   - db.yaml
   - firefly-iii.yaml
+  - ingress-firefly-iii.yaml
   - ingress-firefly-iii-cron.yaml
   - firefly-iii-importer.yaml
+  - ingress-firefly-iii-importer.yaml
+
 namespace: firefly-iii
 secretGenerator:
 - name: firefly-iii-secrets
