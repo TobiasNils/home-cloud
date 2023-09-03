@@ -66,13 +66,13 @@ spec:
               name: firefly-iii-secrets
               key: app_key
         - name: DB_HOST
-          value: "0.0.0.0"
+          value: firefly-iii-db
         - name: DB_CONNECTION
-          value: mysql
+          value: postgres
         - name: DB_DATABASE
           value: "fireflyiii"
         - name: DB_USERNAME
-          value: "root"
+          value: "fireflyiii"
         - name: DB_PASSWORD
           valueFrom:
             secretKeyRef:

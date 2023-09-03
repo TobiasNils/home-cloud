@@ -1,24 +1,24 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: firefly-iii-mysql
+  name: firefly-iii-db
   namespace: firefly-iii
 spec:
   ports:
-    - port: 3306
+    - port: 5432
   selector:
-    app: firefly-iii-mysql
+    app: firefly-iii-db
 
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: mysql-pv-claim
+  name: db-pv-claim
   namespace: firefly-iii
   annotations:
     volumeType: local
   labels:
-    app: firefly-iii-mysql
+    app: firefly-iii-db
 spec:
   storageClassName: local-path
   accessModes:
@@ -30,37 +30,41 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: firefly-iii-mysql
+  name: firefly-iii-db
   namespace: firefly-iii
   labels:
-    app: firefly-iii-mysql
+    app: firefly-iii-db
 spec:
   selector:
     matchLabels:
-      app: firefly-iii-mysql
+      app: firefly-iii-db
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: firefly-iii-mysql
+        app: firefly-iii-db
     spec:
       containers:
-      - image: yobasystems/alpine-mariadb:latest
-        name: mysql
+      - image: docker.io/library/postgres:15
+        name: db
         env:
-        - name: MYSQL_ROOT_PASSWORD
+        - name: PGDATA
+          value: /data/pgdata/15
+        - name: POSTGRES_USER
+          value: "fireflyiii"
+        - name: POSTGRES_PASSWORD
           valueFrom:
             secretKeyRef:
               name: firefly-iii-secrets
               key: db_password
         ports:
-        - containerPort: 3306
-          name: mysql
+        - containerPort: 5432
+          name: db
         volumeMounts:
-        - name: mysql-persistent-storage
-          mountPath: /var/lib/mysql
+        - name: db-persistent-storage
+          mountPath: /data/pgdata/
       volumes:
-      - name: mysql-persistent-storage
+      - name: db-persistent-storage
         persistentVolumeClaim:
-          claimName: mysql-pv-claim
+          claimName: db-pv-claim

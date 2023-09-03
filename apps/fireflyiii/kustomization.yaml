@@ -1,5 +1,5 @@
 resources:
-  - mysql.yaml
+  - db.yaml
   - firefly-iii.yaml
   - ingress-firefly-iii-cron.yaml
   - firefly-iii-importer.yaml
