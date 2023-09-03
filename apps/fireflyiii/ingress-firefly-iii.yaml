@@ -1,4 +1,20 @@
-
+# Service to expose Firefly III on an available port in Kubernetes cluster
+# Assigned port can be seen with `kubectl get services firefly-iii`
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: firefly-iii
+  namespace: firefly-iii
+  labels:
+    app: firefly-iii
+spec:
+  ports:
+    - port: 8080
+      name: firefly-iii
+  selector:
+    app: firefly-iii
+    
 ---
 ###################################################
 # Ingress
@@ -6,7 +22,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: firefly-iii-ingress
+  name: firefly-iii
   namespace: firefly-iii
   annotations:
     acme.cert-manager.io/http01-edit-in-place: "true"
@@ -27,7 +43,7 @@ spec:
           service:
             name: firefly-iii
             port:
-              number: 8080
+              name: firefly-iii
         
 
 
