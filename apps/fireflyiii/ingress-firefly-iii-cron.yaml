@@ -16,7 +16,6 @@ spec:
         metadata:
           labels:
             app: firefly-iii
-            tier: cron
         spec:
           containers:
             - name: cron

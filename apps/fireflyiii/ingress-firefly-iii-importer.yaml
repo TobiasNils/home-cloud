@@ -5,17 +5,17 @@ metadata:
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
     acme.cert-manager.io/http01-edit-in-place: "true"
   labels:
-  name: firefly-iii-importer-ingress
+    name: firefly-iii-importer-ingress
 spec:
   tls:
     - hosts:
-      - cloud.tnils.eu
-      secretName: importer-firefly-iii-tls
+      - fin.tnils.eu
+      secretName: tls-cluster
   rules:
-  - host: cloud.tnils.eu
+  - host: fin.tnils.eu
     http:
       paths:
-      - path: /finances-importer
+      - path: /import
         pathType: Prefix
         backend:
           service:
