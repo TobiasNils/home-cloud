@@ -1,11 +1,3 @@
-###################################################
-# Namespace Gitea
-###################################################
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: gitea
-
 ###############################
 # Deplyoment Gitea
 ###############################
@@ -48,6 +40,10 @@ spec:
               value: redis://localhost:6379/0?pool_size=100&idle_timeout=180s
             - name: GITEA__cache__TIEM_TTL
               value: 24h
+            - name: GITEA__REPOSITORY__ENABLE_PUSH_CREATE_USER
+              value: 'true'
+            - name: GITEA__REPOSITORY__ENABLE_PUSH_CREATE_ORG
+              value: 'true'
           volumeMounts:
           - mountPath: /data
             name: git-data
