@@ -22,7 +22,7 @@ spec:
           image: vaultwarden/server
           env:
             - name: DOMAIN
-              value: 'https://cloud.tnils.eu/vault'
+              value: 'https://vault.tnils.eu/'
             - name: ADMIN_TOKEN
               value: '$$argon2id$$v=19$$m=19456,t=2,p=1$$SHVYd3BjUVBSaDIvSjN6NDZhS2xyZGR1N2V1b0RLK1lQM1F0WEpxUUNBZz0$$yseTByAJMPNzoch8p7z0Kn3nkvi4qfOF9ILJhuOlHx0'
             - name: SIGNUPS_ALLOWED
