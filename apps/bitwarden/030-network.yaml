@@ -31,13 +31,13 @@ metadata:
 spec:
   tls:
   - hosts:
-      - cloud.tnils.eu
+      - vault.tnils.eu
     secretName: tls-vault
   rules:
-  - host: cloud.tnils.eu
+  - host: vault.tnils.eu
     http:
       paths:
-        - path: /vault
+        - path: /
           pathType: Prefix
           backend:
             service:
