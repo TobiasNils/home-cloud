@@ -68,7 +68,7 @@ spec:
         - name: DB_HOST
           value: firefly-iii-db
         - name: DB_CONNECTION
-          value: postgres
+          value: pgsql
         - name: DB_DATABASE
           value: "fireflyiii"
         - name: DB_USERNAME
