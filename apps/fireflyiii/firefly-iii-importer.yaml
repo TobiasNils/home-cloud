@@ -34,13 +34,24 @@ spec:
       - image: fireflyiii/data-importer:latest
         name: firefly-iii-importer
         env:
+        - name: FF_DB_HOST
+          value: firefly-iii-db
+        - name: FF_DB_NAME
+          value: "fireflyiii"
+        - name: FF_DB_USERNAME
+          value: "fireflyiii"
+        - name: FF_DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: firefly-iii-secrets
+              key: db_password
         - name: FIREFLY_III_ACCESS_TOKEN
           valueFrom:
             secretKeyRef:
               name: firefly-iii-secrets
               key: access_token
         - name: FIREFLY_III_URL
-          value: "https://cloud.tnils.eu/finances"
+          value: "https://fin.tnils.eu/"
         - name: TRUSTED_PROXIES
           value: "**"
         ports:
