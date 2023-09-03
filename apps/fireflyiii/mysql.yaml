@@ -7,7 +7,7 @@ spec:
   ports:
     - port: 3306
   selector:
-    app: firefly-iii
+    app: firefly-iii-mysql
 
 ---
 apiVersion: v1
@@ -18,7 +18,7 @@ metadata:
   annotations:
     volumeType: local
   labels:
-    app: firefly-iii
+    app: firefly-iii-mysql
 spec:
   storageClassName: local-path
   accessModes:
@@ -33,17 +33,17 @@ metadata:
   name: firefly-iii-mysql
   namespace: firefly-iii
   labels:
-    app: firefly-iii
+    app: firefly-iii-mysql
 spec:
   selector:
     matchLabels:
-      app: firefly-iii
+      app: firefly-iii-mysql
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: firefly-iii
+        app: firefly-iii-mysql
     spec:
       containers:
       - image: yobasystems/alpine-mariadb:latest
