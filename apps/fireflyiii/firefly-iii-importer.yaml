@@ -7,17 +7,21 @@ metadata:
   name: firefly-iii-importer
   namespace: firefly-iii
   labels:
-    app: firefly-iii-importer
+    app: firefly-iii
+    name: importer
 spec:
   selector:
     matchLabels:
-      app: firefly-iii-importer
+      app: firefly-iii
+      task: importer
+
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: firefly-iii-importer
+        app: firefly-iii
+        task: importer
     spec:
       containers:
       - image: fireflyiii/data-importer:latest
@@ -47,5 +51,5 @@ spec:
           value: "**"
         ports:
         - containerPort: 8080
-          name: firefly-iii
+          name: import
         imagePullPolicy: Always

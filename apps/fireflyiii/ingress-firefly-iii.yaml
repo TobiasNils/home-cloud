@@ -10,8 +10,8 @@ metadata:
 spec:
   ports:
     - port: 8080
-      name: firefly-iii
-      targetPort: firefly-iii
+      name: ui
+      targetPort: ui
   selector:
     app: firefly-iii
     
@@ -26,6 +26,7 @@ spec:
   ports:
     - port: 8080
       name: import
+      targetPort: import
   selector:
     app: firefly-iii-importer
 
@@ -57,7 +58,7 @@ spec:
           service:
             name: firefly-iii
             port:
-              name: firefly-iii
+              name: ui
       - path: /import
         pathType: Prefix
         backend:

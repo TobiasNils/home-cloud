@@ -27,16 +27,19 @@ metadata:
   namespace: firefly-iii
   labels:
     app: firefly-iii
+    name: ui
 spec:
   selector:
     matchLabels:
       app: firefly-iii
+      task: ui
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
         app: firefly-iii
+        task: ui
     spec:
       containers:
       - image: fireflyiii/core
@@ -66,7 +69,7 @@ spec:
           value: "**"
         ports:
         - containerPort: 8080
-          name: firefly-iii
+          name: ui
         volumeMounts:
         - mountPath: "/var/www/html/storage/upload"
           name: firefly-iii-upload 
