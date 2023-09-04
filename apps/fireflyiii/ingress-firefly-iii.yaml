@@ -37,7 +37,7 @@ spec:
   - host: fin.tnils.eu
     http:
       paths:
-      - path: /
+      - path: /accounting
         pathType: Prefix
         backend:
           service:

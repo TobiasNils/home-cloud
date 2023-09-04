@@ -40,7 +40,7 @@ spec:
               name: firefly-iii-secrets
               key: access_token
         - name: FIREFLY_III_URL
-          value: "https://fin.tnils.eu/"
+          value: "https://fin.tnils.eu/accounting/"
         - name: TRUSTED_PROXIES
           value: "**"
         ports:
