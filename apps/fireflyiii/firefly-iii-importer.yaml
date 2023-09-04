@@ -40,6 +40,8 @@ spec:
               name: firefly-iii-secrets
               key: access_token
         - name: FIREFLY_III_URL
+          value: "http://firefly-iii:8080/"
+        - name: VANITY_URL
           value: "https://fin.tnils.eu/accounting/"
         - name: TRUSTED_PROXIES
           value: "**"
