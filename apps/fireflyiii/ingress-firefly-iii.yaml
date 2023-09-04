@@ -6,8 +6,7 @@ kind: Service
 metadata:
   name: firefly-iii
   namespace: firefly-iii
-  labels:
-    app: firefly-iii
+  
 spec:
   ports:
     - port: 8080
@@ -16,6 +15,20 @@ spec:
   selector:
     app: firefly-iii
     
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: firefly-iii-importer
+  namespace: firefly-iii
+
+spec:
+  ports:
+    - port: 8080
+      name: import
+  selector:
+    app: firefly-iii-importer
+
 ---
 ###################################################
 # Ingress
@@ -45,6 +58,13 @@ spec:
             name: firefly-iii
             port:
               name: firefly-iii
+      - path: /import
+        pathType: Prefix
+        backend:
+          service:
+            name: firefly-iii-importer
+            port:
+              name: import
         
 
 
