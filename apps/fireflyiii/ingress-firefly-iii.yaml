@@ -12,6 +12,7 @@ spec:
   ports:
     - port: 8080
       name: firefly-iii
+      targetPort: firefly-iii
   selector:
     app: firefly-iii
     
